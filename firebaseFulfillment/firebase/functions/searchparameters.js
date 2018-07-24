@@ -32,7 +32,7 @@ class SearchParameters {
         console.log('Constructing search parameters...');
 
         // Get search parameters from JSON response
-        let parameters = agent.getContext('productsearch-followup').parameters || agent.getContext('productsearch').parameters;
+        const parameters = agent.getContext('productsearch-followup').parameters || agent.getContext('productsearch').parameters;
         console.log(`Parameters in the request: \n ${JSON.stringify(parameters, null, 2)}`)
 
         if(parameters) {

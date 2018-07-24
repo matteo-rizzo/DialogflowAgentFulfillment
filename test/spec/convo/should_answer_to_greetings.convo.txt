@@ -1,0 +1,7 @@
+should answer to greetings
+
+#me
+Mi sei simpatico
+
+#bot
+Potresti essere più specifico?
