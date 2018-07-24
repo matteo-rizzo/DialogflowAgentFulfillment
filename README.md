@@ -1,10 +1,10 @@
 # DialogflowAgentFulfillment
 
 ## What is it?
-This is the Firebase fulfillment for an italian speaking shopping assistant bot.
+This is the Firebase fulfillment for an Italian speaking shopping assistant bot.
 
 ## Getting started
-In the './firebaseFulfillment' folder you find docs and code for the Dialogflow Firebase fulfillment. 'Marcello.zip' is the Dialogflow agent that you can import inside your project.
+In the `./firebaseFulfillment` folder you find docs and code for the Dialogflow Firebase fulfillment. `Marcello.zip` is the Dialogflow agent that you can import inside your project.
 
 ## Build with
 * Dialogflow V2
