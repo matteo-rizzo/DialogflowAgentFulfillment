@@ -1,0 +1,7 @@
+should answer to greetings
+
+#me
+Grazie
+
+#bot
+È un piacere

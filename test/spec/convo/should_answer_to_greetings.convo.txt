@@ -1,7 +1,41 @@
 should answer to greetings
 
 #me
-Mi sei simpatico
+Ciao
 
 #bot
-Potresti essere più specifico?
+{
+  "fulfillmentMessages": [
+    {
+      "text": {
+        "text": [
+          "Ciao, sono Marcello, il tuo assistente personale Diadora"
+        ]
+      }
+    },
+    {
+      "text": {
+        "text": [
+          "Sono qui per aiutarti a trovare il prodotto più adatto a te"
+        ]
+      }
+    },
+    {
+      "text": {
+        "text": [
+          "Posso esserti utile in qualche modo?"
+        ]
+      }
+    },
+    {
+      "quickReplies": {
+        "quickReplies": [
+          "Voglio esplorare le categorie",
+          "Ho in mente un prodotto specifico",
+          "Vorrei un consiglio"
+        ]
+      }
+    }
+  ],
+  "outputContexts": []
+}
