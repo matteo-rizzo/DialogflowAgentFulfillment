@@ -1,7 +1,0 @@
-should answer to smalltalk - convo
-
-#me
-Chi sei?
-
-#bot
-CHI_SEI
