@@ -116,4 +116,4 @@ describe('APIcaller testing', () => {
         })
     })
       
-})
+}).timeout(1000)
