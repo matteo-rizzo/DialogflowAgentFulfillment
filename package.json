@@ -1,0 +1,10 @@
+{
+  "name": "DialogflowAgentFulfillment",
+  "version": "1.0.0",
+  "description": "Dialogflow Firebase fulfillment for a V2 shopping assistant agent",
+  "main": "index.js",
+  "repository": "https://github.com/MatteoRizzo96/DialogflowAgentFulfillment.git",
+  "author": "Matteo Rizzo",
+  "license": "MIT",
+  "private": false
+}
