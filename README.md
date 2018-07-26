@@ -1,6 +1,6 @@
 # DialogflowAgentFulfillment
 
-[![CircleCI](https://circleci.com/gh/MatteoRizzo96/DialogflowAgentFulfillment.svg?style=svg)](https://circleci.com/gh/MatteoRizzo96/DialogflowAgentFulfillment)
+[![CircleCI](https://circleci.com/gh/MatteoRizzo96/DialogflowAgentFulfillment.svg?style=svg&circle-token=03bca14b664925638bdb0478493624ee0d9d98df)](https://circleci.com/gh/MatteoRizzo96/DialogflowAgentFulfillment)
 
 ## 🤖 What is it?
 
