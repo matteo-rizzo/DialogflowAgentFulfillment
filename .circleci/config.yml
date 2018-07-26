@@ -38,5 +38,5 @@ jobs:
             - run:
                 name: Testing Firebase fulfillment
                 command: cd firebaseFulfillment/firebase/functions && yarn install && npm run test
-            - store_test_results:
-                path: /tmp/test-results/dialogflow-fulfillment
+            #- store_test_results:
+            #    path: /tmp/test-results/dialogflow-fulfillment
