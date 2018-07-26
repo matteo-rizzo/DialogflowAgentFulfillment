@@ -2,7 +2,7 @@ version: 2
 jobs:
     # The build job
     build:
-        working_directory: ~/test
+        working_directory: ~/DialogflowAgentFulfillment
         docker:
             - image: circleci/node:6.10-browsers
         steps:
@@ -12,12 +12,9 @@ jobs:
             - run:
                 name: Show current branch
                 command: echo ${CIRCLE_BRANCH}
-            # Log the current branch
-            - run:
-                name: Where Am I
-                command: ls
             # Restore local dependencies from cache
             - restore_cache:
+                command: cd test
                 keys:
                 - v1-dependencies-{{ checksum "package.json" }}
                 - v1-dependencies-
