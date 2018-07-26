@@ -4,7 +4,7 @@
 
 ## 🤖 What is it?
 
-This is the Firebase fulfillment for an Italian speaking shopping assistant bot.
+This is the Firebase fulfillment for an Italian speaking shopping assistant bot. It implements webhook slot filling and API fulfillment.
 
 ## 🙌 Getting started
 
@@ -12,7 +12,12 @@ In the `./firebaseFulfillment` folder you find docs and code for the Dialogflow 
 
 ## ✅ Running the tests
 
-The project integrates [TestMyBot](https://github.com/codeforequity-at/testmybot) for testing. You will find further information about this in a dedicated README.md in the `test` folder.
+* The project integrates [TestMyBot](https://github.com/codeforequity-at/testmybot) for testing. You will find further information about this in a dedicated README.md in the `test` folder.
+* The project integrates unit testing built with [Mocha](https://mochajs.org/) and [Chai](http://www.chaijs.com/). You will find further information about this in a dedicated README.md in the `firebaseFulfillment/firebase/functions/test` folder.
+
+## 🌀 Continuous integration
+
+The project integrates a CI flow built with [CircleCI](https://circleci.com/) that runs the test for the bot and the Firebase fulfillment at every commit.
 
 ## 🚀 Deployment
 
