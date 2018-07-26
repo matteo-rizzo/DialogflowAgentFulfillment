@@ -70,17 +70,17 @@ function productSearchFulfillment(searchParameters) {
         // Suggestions
         let selection;
         if(uniqueProducts.length > 1) {
-            agent.add("Vedi qualcosa che ti piace? Sarò felice di mostrartela in dettaglio");
+            agent.add('Vedi qualcosa che ti piace? Sarò felice di mostrartela in dettaglio');
     
             for(let i = 0; i < 3 && i < uniqueProducts.length; i++)
             agent.add(new Suggestion(`Prodotto ${parseInt(i+1)}`));
 
-            agent.add(new Suggestion(`Questi prodotti non mi interessano`));
+            agent.add(new Suggestion('Questi prodotti non mi interessano'));
         }
         else {
             selection = 1;
             agent.add(new Suggestion('Vedi prodotto nel dettaglio'));
-            agent.add(new Suggestion(`Questo prodotto non mi interessa`));
+            agent.add(new Suggestion('Questo prodotto non mi interessa'));
         }       
 
         // Contexts

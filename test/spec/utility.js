@@ -3,8 +3,12 @@ function parseTextMessages(messages) {
   let textMessages = [];
   
   for(let i in messages) {
-    if(messages[i].message === "text")
-    textMessages.push(messages[i].text.text);
+    if(messages[i].message === "text") {
+      if(Array.isArray(messages[i].text.text))
+      textMessages.push(messages[i].text.text[0]);
+      else
+      textMessages.push(messages[i].text.text);
+    }
   }
 
   return textMessages;

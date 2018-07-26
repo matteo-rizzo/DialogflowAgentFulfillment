@@ -4,7 +4,7 @@ const Utility = require('./utility')
 
 const tmb = new TestMyBot()
 
-describe('Product Search Test Suite', function() {
+describe('Product Search Followup Test Suite', function() {
 
   beforeAll(function(done) {
     tmb.beforeAll().then(done);
@@ -22,14 +22,14 @@ describe('Product Search Test Suite', function() {
     tmb.afterAll().then(done);
   }, 60000);
   
-  it('should answer to specific product search', function(done) {
+  it('should answer with macrocategory slot filling when promped with gender', function(done) {
 
     // Initialization
     tmb.hears('Ciao');
     tmb.says().then(() => {
 
       // Hears
-      const input = 'Cerco scarpe da calcio da uomo';
+      const input = 'Cerco da uomo';
       console.log('\n\nBot hears: ' + input)
       tmb.hears(input);
   
@@ -43,30 +43,17 @@ describe('Product Search Test Suite', function() {
         // Divide text messages and quick replies
   
         let textMessages = Utility.parseTextMessages(fulfillmentMessages);
-        let cards = Utility.parseCards(fulfillmentMessages);
         let quickReplies = Utility.parseQuickReplies(fulfillmentMessages);
   
-        // Expect 2 text messages
+        // Expect 1 text messages
   
         expect(textMessages.length).toBeDefined();
-        expect(textMessages.length).toBe(2);
+        expect(textMessages.length).toBe(1);
   
-        expect(textMessages[0]).toMatch('Questi sono alcuni dei miei prodotti preferiti dalla collezione calcio per la categoria scarpe uomo.');
-        
-        // Expect 3 cards
-        
-        expect(cards.length).toBeDefined();
-        expect(cards.length).toBe(3);
-  
-        // Expect 4 quick replies
+        // Expect 4 quick replies (at least)
         
         expect(quickReplies.length).toBeDefined();
-        expect(quickReplies.length).toBe(4);
-        
-        for(let i = 0; i < quickReplies.length - 1; i++)
-        expect(quickReplies[i]).toMatch('Prodotto ' + parseInt(i+1));
-
-        expect(quickReplies[quickReplies.length - 1]).toMatch('Questi prodotti non mi interessano');
+        expect(quickReplies.length).toBeGreaterThanOrEqual(3);
   
         done();
       }).catch((err) => {
@@ -76,14 +63,14 @@ describe('Product Search Test Suite', function() {
     })
   }, 10000);
 
-  it('should answer to specific product search with color', function(done) {
+  it('should answer with slot filling when promped with macrocategory', function(done) {
 
     // Initialization
     tmb.hears('Ciao');
     tmb.says().then(() => {
 
       // Hears
-      const input = 'Cerco scarpe da calcio da uomo rosse';
+      const input = 'Cerco delle scarpe';
       console.log('\n\nBot hears: ' + input)
       tmb.hears(input);
   
@@ -97,31 +84,58 @@ describe('Product Search Test Suite', function() {
         // Divide text messages and quick replies
   
         let textMessages = Utility.parseTextMessages(fulfillmentMessages);
-        let cards = Utility.parseCards(fulfillmentMessages);
         let quickReplies = Utility.parseQuickReplies(fulfillmentMessages);
   
-        // Expect 3 text messages
+        // Expect 1 text messages
   
         expect(textMessages.length).toBeDefined();
-        expect(textMessages.length).toBe(3);
+        expect(textMessages.length).toBe(1);
   
-        expect(textMessages[0]).toMatch('Questi sono alcuni dei miei prodotti preferiti dalla collezione calcio per la categoria scarpe uomo.');
-        expect(textMessages[1]).toMatch('Ho selezionato solo prodotti di colore rosso');
-        
-        // Expect 3 cards
-        
-        expect(cards.length).toBeDefined();
-        expect(cards.length).toBe(3);
-  
-        // Expect 4 quick replies
+        // Expect 3 quick replies
         
         expect(quickReplies.length).toBeDefined();
-        expect(quickReplies.length).toBe(4);
-        
-        for(let i = 0; i < quickReplies.length - 1; i++)
-        expect(quickReplies[i]).toMatch('Prodotto ' + parseInt(i+1));
+        expect(quickReplies.length).toBeGreaterThanOrEqual(3);
+  
+        done();
+      }).catch((err) => {
+        throw new Error(err);
+      });
 
-        expect(quickReplies[quickReplies.length - 1]).toMatch('Questi prodotti non mi interessano');
+    })
+  }, 10000);
+
+  it('should answer with slot filling when promped with category', function(done) {
+
+    // Initialization
+    tmb.hears('Ciao');
+    tmb.says().then(() => {
+
+      // Hears
+      const input = 'Cerco delle felpe';
+      console.log('\n\nBot hears: ' + input)
+      tmb.hears(input);
+  
+      // Says
+      tmb.says().then((msg) => {
+  
+        const fulfillmentMessages = msg.sourceData.fulfillmentMessages;
+  
+        console.log('Bot says: ' + JSON.stringify(fulfillmentMessages, null, 2));
+  
+        // Divide text messages and quick replies
+  
+        let textMessages = Utility.parseTextMessages(fulfillmentMessages);
+        let quickReplies = Utility.parseQuickReplies(fulfillmentMessages);
+  
+        // Expect 1 text messages
+  
+        expect(textMessages.length).toBeDefined();
+        expect(textMessages.length).toBe(1);
+  
+        // Expect 3 quick replies
+        
+        expect(quickReplies.length).toBeDefined();
+        expect(quickReplies.length).toBeGreaterThanOrEqual(3);
   
         done();
       }).catch((err) => {
