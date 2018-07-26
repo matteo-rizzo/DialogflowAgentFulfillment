@@ -12,6 +12,10 @@ jobs:
             - run:
                 name: Show current branch
                 command: echo ${CIRCLE_BRANCH}
+            # Log the current branch
+            - run:
+                name: Where Am I
+                command: ls
             # Restore local dependencies from cache
             - restore_cache:
                 keys:
