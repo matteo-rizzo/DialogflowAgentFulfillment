@@ -14,11 +14,11 @@ jobs:
                 command: echo ${CIRCLE_BRANCH}
             # Restore local dependencies from cache
             - restore_cache:
+                paths:
+                - test
                 keys:
                 - v1-dependencies-{{ checksum "package.json" }}
                 - v1-dependencies-
-                paths:
-                - test
             # Install project dependencies
             - run:
                 name: Install local dependencies
