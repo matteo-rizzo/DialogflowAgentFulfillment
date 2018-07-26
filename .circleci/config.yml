@@ -14,10 +14,11 @@ jobs:
                 command: echo ${CIRCLE_BRANCH}
             # Restore local dependencies from cache
             - restore_cache:
-                command: cd test
                 keys:
                 - v1-dependencies-{{ checksum "package.json" }}
                 - v1-dependencies-
+                paths:
+                - DialogflowAgentFulfillment/test
             # Install project dependencies
             - run:
                 name: Install local dependencies
