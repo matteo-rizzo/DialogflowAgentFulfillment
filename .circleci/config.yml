@@ -4,7 +4,7 @@ jobs:
     build:
         working_directory: ~/DialogflowAgentFulfillment
         docker:
-            - image: circleci/node:6.10-browsers
+            - image: circleci/node:8.0-browsers
         steps:
             # Checkout the code from the branch into the working_directory
             - checkout
@@ -28,28 +28,11 @@ jobs:
                 key: v1-dependencies-{{ checksum "package.json" }}
                 paths:
                     - node_modules
-            # Lint the source code
+            # Test the bot conversations
             - run:
-                name: Linting
-                command: npm run lint
-            # Test the source code
+                name: Testing bot conversations
+                command: cd test && yarn install && npm run test
+            # Test the Firebase fulfillment
             - run:
-                name: Testing
-                command: npm run test
-            # Build project with different configuration based on
-            # the current branch
-            - run:
-                name: Building
-                command: |
-                    if [ "${CIRCLE_BRANCH}" == "staging" ]; then
-                        npm run build-qa
-                    elif [ "${CIRCLE_BRANCH}" == "master" ]; then
-                        npm run build-prod
-                    else
-                        npm run build-dev
-                    fi
-            # Cache the dist folder for the deploy job
-            - save_cache:
-                key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
-                paths:
-                    - dist
+                name: Testing Firebase fulfillment
+                command: cd firebaseFulfillment/firebase/functions && yarn install && npm run test
