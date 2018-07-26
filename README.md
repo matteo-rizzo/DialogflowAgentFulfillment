@@ -1,5 +1,7 @@
 # DialogflowAgentFulfillment
 
+[![CircleCI](https://circleci.com/gh/MatteoRizzo96/DialogflowAgentFulfillment.svg?style=svg&circle-token=03bca14b664925638bdb0478493624ee0d9d98df)](https://circleci.com/gh/MatteoRizzo96/DialogflowAgentFulfillment)
+
 ## 🤖 What is it?
 
 This is the Firebase fulfillment for an Italian speaking shopping assistant bot.
