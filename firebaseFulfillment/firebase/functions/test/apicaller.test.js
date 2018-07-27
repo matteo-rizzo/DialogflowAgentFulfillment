@@ -89,31 +89,60 @@ describe('APIcaller testing', () => {
     // Construct search parameters
     const searchParameters = new SearchParameters();
 
-    it('Should call the categories API', () => {
+    it('Should call the categories API and retrieve some results', () => {
 
         return APIcaller.callCategoriesApi('uomo-scarpe').then((categories) => {
             return assert.isNotEmpty(categories);
         }).catch((err) => {
             throw err;
         })
+    }).timeout(6000)
+
+    it('Should call the categories API and retrieve no results', () => {
+
+        return APIcaller.callCategoriesApi('uomo-scarpe-ciclismo').then((categories) => {
+            return assert.isEmpty(categories);
+        }).catch((err) => {
+            throw err;
+        })
     })
 
-    it('Should call the product search API', () => {
+    it('Should call the product search API and retrieve a result', () => {
 
         return APIcaller.callProductSearchApi(searchParameters).then((products) => {
             return assert.isNotEmpty(products);
         }).catch((err) => {
             throw err;
         })
-    })
+    }).timeout(6000)
 
-    it('Should call the products API', () => {
+    it('Should call the product search API and retrieve no result', () => {
+
+        searchParameters.gender = 'donna';
+
+        return APIcaller.callProductSearchApi(searchParameters).then((products) => {
+            return assert.notExists(products);
+        }).catch((err) => {
+            throw err;
+        })
+    }).timeout(6000)
+
+    it('Should call the products API and retrieve a result', () => {
 
         return APIcaller.callProductsApi('101.173266_C4732').then((product) => {
             return assert.isNotEmpty(product);
         }).catch((err) => {
             throw err;
         })
-    })
+    }).timeout(6000)
       
+    it('Should call the products API and retrieve no result', () => {
+
+        return APIcaller.callProductsApi('000.000000_00000').then((product) => {
+            return product.name;
+        }).catch((err) => {
+            return assert.exists(err);
+        })
+    }).timeout(6000)
+
 }).timeout(1000)

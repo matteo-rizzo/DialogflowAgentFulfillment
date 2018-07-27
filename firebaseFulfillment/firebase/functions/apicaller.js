@@ -134,9 +134,9 @@ function callProductsApi(id, allImages = false) {
             console.log(`API response: \n ${JSON.stringify(product, null, 2)}`);
             return Promise.resolve(product);
         })
-        .catch((fault) => {
-            console.error(fault);
-            return Promise.reject(product);
+        .catch((err) => {
+            console.error(err);
+            throw err;
         });
 }
 

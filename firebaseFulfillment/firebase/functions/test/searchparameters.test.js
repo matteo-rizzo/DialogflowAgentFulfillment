@@ -112,6 +112,24 @@ describe('SearchParameters testing', () => {
       return assert.deepEqual(searchParameters.getCategoryMap(parameters), expectedMap);
     })
 
+    it('Should not construct the category map', () => {
+
+      const parameters = {
+          "shoes": "Heritage",
+          "clothing": "Felpe",
+          "accessories": "Berretti",
+      };
+
+      const expectedMap = new Map([
+        ["scarpe", "heritage"],
+        ["abbigliamento", "felpe"],
+        ["accessori", "berretti"],
+        ["sport", "tennis"]
+      ]);
+
+      return assert.notEqual(searchParameters.getCategoryMap(parameters), expectedMap);
+    })
+
     it('Should construct the category names map', () => {
 
       const expectedMap = new Map([
@@ -135,9 +153,25 @@ describe('SearchParameters testing', () => {
 
         return assert.strictEqual(searchParameters.getMacrocategoryByCategory(parameters), 'scarpe');
     })
-      
+     
+    it('Should not return the right macrocategory given a category', () => {
+
+      const parameters = {}
+
+      return assert.notExists(searchParameters.getMacrocategoryByCategory(parameters));
+    })
+
     it('Should return the query parameters', () => {
 
-        return assert.isNotEmpty(searchParameters.getQuery());
+      return assert.isNotEmpty(searchParameters.getQuery());
+    })
+
+    it('Should return empty query parameters', () => {
+
+      searchParameters.gender = "";
+      searchParameters.macrocategory = "";
+      searchParameters.category = "";
+
+      return assert.isEmpty(searchParameters.getQuery()[0]);
     })
 })
