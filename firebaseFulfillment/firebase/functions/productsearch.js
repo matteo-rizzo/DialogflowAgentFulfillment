@@ -62,7 +62,7 @@ function productSearchFulfillment(searchParameters) {
                     imageUrl: uniqueProducts[i].image_groups[1].images[0].link,
                     text: uniqueProducts[i].long_description,
                     buttonText: `Vai a prodotto ${parseInt(i+1)}`,
-                    buttonUrl:  'https://dev01-diana01-dianacorp.demandware.net/s/Diadora/it/it/' + uniqueProducts[i].id + '.html'
+                    buttonUrl:  'https://yourproduct.com' + uniqueProducts[i].id + '.html'
                 })
             );
         }
