@@ -14,7 +14,7 @@ function getOCAPIconfig() {
     // Notice: if you need prod authentication use oauth2 access token, see the docs for further info
     const clientId = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
     // Path to the sandbox
-    const basePath = 'https://dev01-diana01-dianacorp.demandware.net/s/Diadora/dw/shop/v18_7';
+    const basePath = 'https://yourbasepath.com';
 
 
     // Basic API client config
