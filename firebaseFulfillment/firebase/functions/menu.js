@@ -6,7 +6,7 @@ const {Suggestion} = require('dialogflow-fulfillment');
 function menuHandler() {
     console.log('menuHandler');
 
-    agent.add('Questi sono alcuni dei modi in cui posso aiutarti nella tua visita allo store online Diadora')
+    agent.add('Questi sono alcuni dei modi in cui posso aiutarti nella tua visita al nostro store online')
     agent.add(new Suggestion(`Esplorazione delle categorie`));
     agent.add(new Suggestion(`Ricerca prodotto specifico`));
     agent.add(new Suggestion(`Suggerimento prodotto`));
