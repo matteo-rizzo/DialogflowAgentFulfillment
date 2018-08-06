@@ -7,7 +7,7 @@ function greetingsHandler() {
 
     console.log('greetingsHandler');
 
-    agent.add(`Ciao, sono Marcello, il tuo assistente personale Diadora`);
+    agent.add(`Ciao, sono Marcello, il tuo personal shopper`);
     agent.add(`Sono qui per aiutarti a trovare il prodotto più adatto a te`);
     agent.add(`Posso esserti utile in qualche modo?`);
     agent.add(new Suggestion(`Voglio esplorare le categorie`));
