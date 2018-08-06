@@ -1,5 +1,5 @@
 /**
- * Firebase fulfillment for the Dialogflow DianaAgent
+ * Firebase fulfillment for the Dialogflow Agent
  * 
  * This is the Firebase function entry point and only handles intent mapping via intents handlers.
  * An intent handler follows the succeeding pattern:
