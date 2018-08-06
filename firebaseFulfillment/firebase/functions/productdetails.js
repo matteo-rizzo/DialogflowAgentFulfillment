@@ -72,7 +72,7 @@ function getSizeChart() {
     agent.add(new Card({
         title: 'Guida taglie ' + gender,
         buttonText: 'Vai alla guida',
-        buttonUrl: 'https://www.diadora.com/it/it/size-chart-page.html?category=' + gender 
+        buttonUrl: 'https://www.sizechart.com?gender=' + gender 
     }));
 }
 
